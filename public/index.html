@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Comments page</title>
+  <link rel="stylesheet" href="static/stylesheets/styles.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="shortcut icon" href="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+<section>
+  <form id="main-comment-form" class="main-comment-form clearfix" name="comment-form">
+    <textarea class="message" name="main-comment-message" placeholder="Comment text" form="main-comment-form" rows="5" autofocus required></textarea>
+    <input class=" author" type="text" name="main-comment-author"
+           placeholder="Author name" required>
+    <div class="file-upload">
+      <label>
+        <input class="file" type="file" name="file">
+        <span>Выберите файл</span>
+      </label>
+    </div>
+    <p class="filename"></p>
+    <!--<input class="file" type="file" name="main-comment-file">-->
+    <input class="main-comment-submit" value="Comment" type="button"
+           disabled name="main-comment-submit">
+  </form>
+
+  <div id="comments-tree">
+
+    <!--
+                <div class="comment">
+                    <div class="photo-wrapper">
+                        <img class="photo" src="static/avatars/Fluttershy2018-07-16T21:54:28.033Zfluttershy.png" alt="author">
+                    </div>
+                    <div class="comment-wrapper clearfix">
+                        <h1 class="author">FLUTTERSHY</h1>
+                        <p class="edit-delete"><span>Edit</span> | <span>Delete</span></p>
+                        <p class="comment-body">HI HI HI HI HI HI HI HI
+                            HI HI HI HI HI HI HI HI HI HI HI HI
+                            HI HI HI HI HI HI HI HI HI HI HI HI
+                            HI HI HI HI HI HI HI HI HI HI HI HI HI</p>
+                        <span class="reply-button">Reply</span>
+                    </div>
+                </div>
+                <div class="reply"></div>
+                <div class="comment">
+                    <div class="photo-wrapper">
+                        <img class="photo" src="static/avatars/Fluttershy2018-07-16T21:54:28.033Zfluttershy.png" alt="author">
+                    </div>
+                    <div class="comment-wrapper clearfix">
+                        <h1 class="author">FLUTTERSHY</h1>
+                        <p class="edit-delete"><span>Edit</span> | <span>Delete</span></p>
+                        <p class="comment-body">HI HI HI HI HI HI HI HI
+                            HI HI HI HI HI HI HI HI HI HI HI HI
+                            HI HI HI HI HI HI HI HI HI HI HI HI
+                            HI HI HI HI HI HI HI HI HI HI HI HI HI</p>
+                        <span class="reply-button">Reply</span>
+                    </div>
+                </div>
+                <div class="reply"></div>
+-->
+
+  </div>
+</section>
+
+  <div class="modal">
+    <div class="modal-box">
+      <p>Are you sure you want to delete this message?</p>
+      <div class="modal-box_button-wrapper clearfix">
+        <button class="cancel" type="button">Cancel</button>
+        <button class="confirm" type="button">OK</button>
+      </div>
+    </div>
+  </div>
+
+<script id="comment-template" type="text/template">
+  <div class="comment">
+    <div class="photo-wrapper">
+      <img class="photo" src="{{imglink}}" alt="author">
+    </div>
+    <div class="comment-wrapper clearfix">
+      <h1 class="comment-author">{{author}}</h1>
+      <p class="edit-delete">
+        <span><i class="far fa-edit edit"></i></span> |
+        <span><i class="far fa-trash-alt delete"></i>
+</span>
+      </p>
+      <p class="comment-message">{{message}}</p>
+      <p class="comment-id" commentID="{{commentID}}"  parentID="{{parentID}}"></p>
+      <button class="reply-button" type="button">Reply</button>
+    </div>
+  </div>
+  <div class="reply">
+    <form class="reply-form clearfix" name="reply-form">
+    <textarea class="message" name="reply-message" placeholder="Comment text" rows="3" autofocus required></textarea>
+      <input class="author" type="text" name="reply-author"
+             placeholder="Author name" required>
+      <div class="file-upload">
+        <label>
+          <input class="file" type="file" name="file">
+          <span>Выберите файл</span>
+        </label>
+      </div>
+      <p class="filename"></p>
+      <!--<input class="file" type="file" name="reply-file">-->
+      <input class="reply-submit" type="button" value="Comment"
+             disabled name="reply-submit">
+    </form>
+  </div>
+</script>
+
+<script id="edit-template" type="text/template">
+  <form class="edit-message-form" name="edit-message-form">
+    <textarea class="new-message" name="new-message" rows="4" autofocus required>{{oldMessage}}</textarea>
+    <input type="button" class="update-comment" name="update-comment" value="Update">
+  </form>
+</script>
+<script id="modal-box-template">
+
+  ///////////////////////////////
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+</script>
+<script src="static/javascript/ajax.js"></script>
+</body>
+</html>
